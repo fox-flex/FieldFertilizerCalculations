@@ -47,7 +47,13 @@ def pixel_fertilizer_calculations(red, green, blue, size_1px_squared):
     else:
         delta_blue = 0
 
-    fertilizer_1meter_sq = (delta_blue+delta_red)*0.00025 + delta_green*0.00075
+    delta = (delta_blue+delta_red)*0.00025 + delta_green*0.00075
+    # implementation ln using Tailor sires
+    fertilizer_1meter_sq = 0
+    power = 1
+    for i in range(10):
+        fertilizer_1meter_sq += -(-delta) ** power
+        power += 1
     return fertilizer_1meter_sq * size_1px_squared
 
 
